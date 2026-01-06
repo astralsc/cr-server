@@ -3,9 +3,9 @@ const clanEventHandler = require('../packets/server/ClanEvent/newEventHandler')
 const fingerprintSha = require('../services/http/fingerprint').sha
 
 module.exports.auth = async (session, json) => {
-    if (json.resourceSha != fingerprintSha) {
+    /*if (json.resourceSha != fingerprintSha) {
         session.send(packets.LoginFailed.code, packets.LoginFailed.encode('updateContent'), 4)
-    } else {
+    } else {&*/
         let user = json.pass ? await db.controllers.user.find({
             tag: json.tag,
             pass: json.pass
@@ -26,7 +26,7 @@ module.exports.auth = async (session, json) => {
         } else {
             session.send(packets.LoginFailed.code, packets.LoginFailed.encode('7')) // TODO
         }
-    }
+    //}
 }
 
 module.exports.fetch = async (session, json) => {

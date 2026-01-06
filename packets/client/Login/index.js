@@ -16,11 +16,11 @@ module.exports.decode = payload => {
 
     json.pass = buffer.readIString()
 
-    buffer.readRrsInt32()
+    /*buffer.readRrsInt32()
     buffer.readRrsInt32()
     buffer.readRrsInt32()
 
-    json.resourceSha = buffer.readIString()
+    json.resourceSha = buffer.readIString()*/
 
     return json
 }
