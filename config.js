@@ -20,7 +20,7 @@ module.exports = {
             id: 100,
             name: '2v2 Button',
             startTime: 1503298800,
-            endTime: 1523298800,
+            endTime: 2147483647,
             visibleOn: 1503298800,
             type: 8,
             json: JSON.stringify({
@@ -32,4 +32,5 @@ module.exports = {
             })
         }
     ]
+
 }
