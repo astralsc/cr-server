@@ -1,20 +1,12 @@
 const fs = require('fs')
 var mongoose = require('mongoose')
-mongoose.Promise = require('bluebird')
 
-mongoose.connect(`mongodb://${config.db.host}/${config.db.name}`, {
-    useMongoClient: true
-})
-
-mongoose.connection.on('error', () => {
-    console.error('✖️  Could not connect to database')
+mongoose.connect(`mongodb://${config.db.host}/${config.db.name}`)
+  .then(() => console.log('✔️  Successfully connected to the DB'))
+  .catch(err => {
+    console.error('✖️  Could not connect to database', err)
     process.exit(1)
-})
-
-mongoose.connection.once('connected', () => {
-    console.log('✔️  Successfully connected to the DB')
-})
-
+  })
 
 db = {}
 // TODO: AUTO LOAD
