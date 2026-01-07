@@ -19,8 +19,8 @@ const schema = new mongoose.Schema({
         status: { type: Number, default: 1 }
     }],
     resources: {
-        gold: { type: Number, max: 1000000, default: 1000000 },
-        gems: { type: Number, default: 1000000 },
+        gold: { type: Number, default: config.resources.gold },
+        gems: { type: Number, default: config.resources.diamonds },
         currentDeck: { type: Number, min: 0, max: 4, default: 0 }
     },
     stats: {

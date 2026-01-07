@@ -15,6 +15,11 @@ module.exports = {
     network: {
         maxConnections: 20
     },
+    resources: {
+        gold: 1000000000,
+        mana: 1000000000,
+        diamonds: 1000000000  
+    },
     events: [
         {
             id: 100,
