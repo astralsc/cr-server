@@ -15,10 +15,13 @@ module.exports = {
     network: {
         maxConnections: 20
     },
-    resources: {
+    stats: {
         gold: 1000000000,
-        mana: 1000000000,
-        diamonds: 1000000000  
+        diamonds: 1000000000,
+        level: 13,
+        experience: 0,
+        trophies: 0,
+        arena: 1
     },
     events: [
         {

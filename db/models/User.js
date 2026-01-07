@@ -3,7 +3,7 @@ const tag2id = require('../../logic/utils/tag2id')
 
 const schema = new mongoose.Schema({
     tag: { type: String, required: true, unique: true },
-    nick: { type: String, default: 'AN', required: true },
+    nick: { type: String, default: 'You', required: true },
     tagId: {
         high: { type: Number },
         low: { type: Number }
@@ -19,19 +19,19 @@ const schema = new mongoose.Schema({
         status: { type: Number, default: 1 }
     }],
     resources: {
-        gold: { type: Number, default: config.resources.gold },
-        gems: { type: Number, default: config.resources.diamonds },
+        gold: { type: Number, default: config.stats.gold },
+        gems: { type: Number, default: config.stats.diamonds },
         currentDeck: { type: Number, min: 0, max: 4, default: 0 }
     },
     stats: {
-        trophies: { type: Number, default: 2800 },
-        arena: { type: Number, default: 9 },
-        record: { type: Number, default: 2800 },
+        trophies: { type: Number, default: config.stats.trophies },
+        arena: { type: Number, default: config.stats.arena },
+        record: { type: Number, default: 0 },
         battles: { type: Number, default: 0 },
         wins: { type: Number, default: 0 },
         loses: { type: Number, default: 0 },
-        level: { type: Number, default: 4, max: 13, min: 1 },
-        exp: { type: Number, default: 0 },
+        level: { type: Number, default: config.stats.level, max: 13, min: 1 },
+        exp: { type: Number, default: config.stats.experience },
     },
     clan: {
         tag: { type: String },
@@ -39,7 +39,8 @@ const schema = new mongoose.Schema({
         badge: { type: Number },
         role: { type: Number, min: 1, max: 4}
     },
-    registeredTime: { type: Date, default: Date.now }
+    registeredTime: { type: Date, default: Date.now },
+    changedName: { type: Number, default: 0 }
 }, {
     usePushEach: true
 })
